@@ -1,5 +1,5 @@
 ##### SpringMvc工作流程
-![springmvc流程](https://github.com/chenhh23/java-study/blob/master/picture/jdk-dynamic-proxy.png)
+![springmvc流程](https://github.com/chenhh23/java-study/blob/master/picture/springmvc.png)
 
 SpringMVC运行原理 
 1. 客户端请求提交到DispatcherServlet 
