@@ -59,8 +59,7 @@ The @SpringBootApplication annotation is equivalent to using @Configuration, @En
 ##### Spring Boot VS Spring
 `Spring Boot 是针对于Spring搭建一套服务所需要进行的重复繁琐操作的改进`
 - spring boot starter可以引入一套兼容的各组件依赖
-- spring boot 约定
-- spring boot starter可以引入一套兼容的各组件依赖
-- spring boot starter可以引入一套兼容的各组件依赖
-
+- spring boot 约定优于配置，提供了一套默认的配置，即插即用。如需自定义配置，只需要对对应参数进行设置即可。
+- spring boot 使用了内嵌容器
+- spring boot actuator对服务进行了监控
 
