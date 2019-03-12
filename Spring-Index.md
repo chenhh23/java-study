@@ -9,6 +9,7 @@
 - **ApplicationContext**: ApplicationContext is a sub-interface of BeanFactory. It adds easier integration with Spring’s AOP features; message resource handling (for use in internationalization), event publication; and application-layer specific contexts such as the WebApplicationContext for use in web applications.<br/>
 ![image](/uploads/21331b14be9411de379cb03dff0d6ae8/image.png)
 - **Resource**: Spring’s Resource interface is meant to be a more capable interface for abstracting access to low-level resources.<br/>
+
 ![image](/uploads/4462428cb7301f1bb9ed96d55fed00ce/image.png)
 - **BeanPostProcessor**: The BeanPostProcessor interface defines callback methods that you can implement to provide your own (or override the container’s default) instantiation logic, dependency-resolution logic, and so forth. If you want to implement some custom logic after the Spring container finishes instantiating, configuring, and initializing a bean, you can plug in one or more BeanPostProcessor implementations. That is say **`BeanPostProcessors` operate on bean (or object) instances**. A bean post-processor typically checks for callback interfaces or may wrap a bean with a proxy. Some Spring AOP infrastructure classes are implemented as bean post-processors in order to provide proxy-wrapping logic.<br/> 
 ![image](/uploads/74fe3cea2ab62876750106bc533b6d00/image.png)
