@@ -192,7 +192,7 @@ public class TestInterfaceMaker {
 具体做法如下:
 - 首先实现一个InvocationHandler，方法调用会被转发到该类的invoke()方法。
 - 然后在需要使用Hello的时候，通过JDK动态代理获取Hello的代理对象。
-![image](/uploads/06b57db65e885bd302fe51d45591b5c4/image.png)
+![image](https://github.com/chenhh23/java-study/blob/master/picture/jdk-dynamic-proxy.png)
 ```
 class MyInvocatioHandler implements InvocationHandler {
     private Object target;
