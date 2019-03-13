@@ -27,7 +27,7 @@ fromArray()，fromIterable()和 fromStream()：可以从一个数组、Iterable 
 - range(int start, int count)：创建包含从 start 起始的 count 个数量的 Integer 对象的序列。
 - interval(Duration period)和 interval(Duration delay, Duration period)：创建一个包含了从 0 开始递增的 Long 对象的序列。其中包含的元素按照指定的间隔来发布。除了间隔时间之外，还可以指定起始元素发布之前的延迟时间。
 - intervalMillis(long period)和 intervalMillis(long delay, long period)：与 interval()方法的作用相同，只不过该方法通过毫秒数来指定时间间隔和延迟时间。
-- generate() 通过同步和逐一的方式来产生 Flux 序列，逐一生成的含义是在具体的生成逻辑中，next()方法只能最多被调用一次。序列的生成可能是有状态的，需要用到某些状态对象。此时可以使用 generate()方法的另外一种形式 generate(Callable<S> stateSupplier, BiFunction<S,SynchronousSink<T>,S> generator)，其中 stateSupplier 用来提供初始的状态对象。
+- generate() 通过同步和逐一的方式来产生 Flux 序列，逐一生成的含义是在具体的生成逻辑中，next()方法只能最多被调用一次。序列的生成可能是有状态的，需要用到某些状态对象。此时可以使用 generate()方法的另外一种形式 `generate(Callable<S> stateSupplier, BiFunction<S,SynchronousSink<T>,S> generator)`，其中 stateSupplier 用来提供初始的状态对象。
 - create(): create()方法与 generate()方法的不同之处在于所使用的是 FluxSink 对象。FluxSink 支持同步和异步的消息产生，并且可以在一次调用中产生多个元素。
 
 
