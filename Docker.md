@@ -2,8 +2,8 @@
 - [Docker 入门](https://yeasy.gitbooks.io/docker_practice/)
 
 #### 什么是Docker
-![image](/uploads/7e69ec4be47ce3f8c727a83da2c11362/image.png)
-![image](/uploads/06d61789ae95d46c51c515ca26e0c2c4/image.png)
+![image](https://github.com/chenhh23/java-study/blob/master/picture/docker.png)
+![image](https://github.com/chenhh23/java-study/blob/master/picture/virtual-machines.png)
 Docker 使用 Google 公司推出的 Go 语言 进行开发实现，基于 Linux 内核的 cgroup，namespace，以及 AUFS 类的 Union FS 等技术，对进程进行封装隔离，属于操作系统层面的虚拟化技术。由于隔离的进程独立于宿主和其它的隔离的进程，进行了进一步的封装，从文件系统、网络互联到进程隔离等等，极大的简化了容器的创建和维护。
 
 #### 优点
