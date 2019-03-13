@@ -73,13 +73,13 @@ Java偏向锁(Biased Locking)是Java 6引入的一项多线程优化。
 
 #### 轻量级锁的加锁过程
 1. 在代码进入同步块的时候，如果同步对象锁状态为无锁状态（锁标志位为“01”状态，是否为偏向锁为“0”），虚拟机首先将在当前线程的栈帧中建立一个名为锁记录（Lock Record）的空间，用于存储锁对象目前的Mark Word的拷贝，官方称之为 Displaced Mark Word。这时候线程堆栈与对象头的状态如图： 
-![image](https://github.com/chenhh23/java-study/raw/master/picture/light-docker.png)
+![image](https://github.com/chenhh23/java-study/raw/master/picture/light-lock.png)
 2. 拷贝对象头中的Mark Word复制到锁记录中；
 
 3. 拷贝成功后，虚拟机将使用CAS操作尝试将对象的Mark Word更新为指向Lock Record的指针，并将Lock record里的owner指针指向object mark word。如果更新成功，则执行步骤4，否则执行步骤5。
 
 4. 如果这个更新动作成功了，那么这个线程就拥有了该对象的锁，并且对象Mark Word的锁标志位设置为“00”，即表示此对象处于轻量级锁定状态，这时候线程堆栈与对象头的状态如图所示。 
-![image](/uploads/03e93ac8730996821480b19526c310f5/image.png)
+![image](https://github.com/chenhh23/java-study/raw/master/picture/light-lock2.png)
 5. 如果这个更新操作失败了，虚拟机首先会检查对象的Mark Word是否指向当前线程的栈帧，如果是就说明当前线程已经拥有了这个对象的锁，那就可以直接进入同步块继续执行。否则说明多个线程竞争锁，轻量级锁就要膨胀为重量级锁，锁标志的状态值变为“10”，Mark Word中存储的就是指向重量级锁（互斥量）的指针，后面等待锁的线程也要进入阻塞状态。 而当前线程便尝试使用自旋来获取锁，自旋就是为了不让线程阻塞，而采用循环去获取锁的过程。
 
 #### 轻量级锁的释放
@@ -97,4 +97,4 @@ Java偏向锁(Biased Locking)是Java 6引入的一项多线程优化。
 
 这就是自旋锁，尝试获取锁的线程，在没有获得锁的时候，不被挂起，而转而去执行一个空循环，即自旋。在若干个自旋后，如果还没有获得锁，则才被挂起，获得锁，则执行代码。
 
-![image](/uploads/7f737100d5271efa924bdec27a53b0ba/image.png)
+![image](https://github.com/chenhh23/java-study/raw/master/picture/lock-upgrade.png)
