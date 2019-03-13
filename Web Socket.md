@@ -7,7 +7,7 @@
 WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。Http协议是一种Request-Response的请求，请求只能够由Client发起，服务器进行处理。WebSocket补充了Http协议的被动性，先通过http协议握手建立连接，随后请求升级成websocket协议，在浏览器和服务器之间建立一个不受限的双向通信的通道，服务器可以在任意时刻发送消息给浏览器。
 
 #### 工作原理
-![image](/uploads/758e5ed828a2cb1f2863314a6efb65dc/image.png)
+![image](https://github.com/chenhh23/java-study/blob/master/picture/web-socket.png)
 
 因为websocket先通过http协议握手建立连接，请求协议是一个标准的HTTP请求，WebSocket连接必须由浏览器发起。
 
