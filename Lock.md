@@ -3,7 +3,7 @@
 
 ### java中的锁
 32位虚拟机在不同状态下markword结构
-![image](/uploads/4edec9a00f02e134fc45a231bfc5a696/image.png)
+![image](https://github.com/chenhh23/java-study/raw/master/picture/lock.png)
 
 - 悲观锁: 重量级锁(synchronized)
 - 乐观锁: 自旋锁、轻量级锁与偏向锁
@@ -73,7 +73,7 @@ Java偏向锁(Biased Locking)是Java 6引入的一项多线程优化。
 
 #### 轻量级锁的加锁过程
 1. 在代码进入同步块的时候，如果同步对象锁状态为无锁状态（锁标志位为“01”状态，是否为偏向锁为“0”），虚拟机首先将在当前线程的栈帧中建立一个名为锁记录（Lock Record）的空间，用于存储锁对象目前的Mark Word的拷贝，官方称之为 Displaced Mark Word。这时候线程堆栈与对象头的状态如图： 
-![image](/uploads/5b2b722a18dbed81e66e3057e03dd536/image.png)
+![image](https://github.com/chenhh23/java-study/raw/master/picture/light-docker.png)
 2. 拷贝对象头中的Mark Word复制到锁记录中；
 
 3. 拷贝成功后，虚拟机将使用CAS操作尝试将对象的Mark Word更新为指向Lock Record的指针，并将Lock record里的owner指针指向object mark word。如果更新成功，则执行步骤4，否则执行步骤5。
